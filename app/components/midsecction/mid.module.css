@@ -1,0 +1,50 @@
+/* .main {
+    display: flex;
+
+  }
+  
+  .leftSection {
+    flex: 25;
+    background-color: #c864a0; 
+  }
+  
+  .rightSection {
+    flex: 75;
+    background-color: #a5eacc; 
+    padding: 2.5%;
+
+  }
+ */
+
+
+  .main {
+    display: flex;
+    flex-direction: row;
+    /* Adjust this value to create space for the fixed header */
+    min-height: 100%;
+    align-items: stretch;
+  }
+  
+  .leftSection {
+    flex: 30%;
+    overflow-y: fixed;
+    /* padding-top: 60px; */
+    background-color: #c864a0; 
+    align-items: flex-start;
+  }
+  
+  .rightSection {
+    flex: 70%;
+    background-color: #a5eacc; 
+    /* padding-left: 400px; */
+    /* Add your styles for the right section here */
+  }
+  .bottomRow {
+
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #f0f0f0;
+      border-radius: 5px;
+      max-height: 400px; 
+      overflow-y: auto; /* Enable vertical scrolling */
+    }

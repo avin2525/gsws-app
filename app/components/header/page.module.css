@@ -1,0 +1,84 @@
+.Container {
+  background: linear-gradient(45deg, #0d47a1, #4caf50);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  letter-spacing: -0.015em;
+  padding-left: 100px;
+  padding-right: 50px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  text-decoration: none;
+  /* position: absolute; */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+}
+
+.pageTitle1 {
+  display: flex;
+  align-items: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.link {
+  text-decoration: none !important;
+}
+
+.leftImage {
+  height: 70px;
+  width: 65px;
+}
+
+.leftHeading {
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none !important;
+  color: white;
+  background-color: none;
+  outline: none;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.leftHeading:hover {
+  text-decoration: none;
+}
+
+.pageTitle2 {
+  display: flex;
+  align-items: center;
+}
+
+.rightImage2 {
+  height: 70px;
+  width: 65px;
+}
+
+.rightImage1 {
+  height: 70px;
+  width: 280px;
+}
+
+@media (max-width: 880px) {
+  .Container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .pageTitle1 {
+    margin-bottom: 10px;
+    padding-left: 50px;
+  }
+
+  .leftHeading {
+    font-size: 25px;
+  }
+
+  .rightImage1,
+  .rightImage2 {
+    display: none;
+  }
+}
