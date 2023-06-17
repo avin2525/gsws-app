@@ -10,12 +10,10 @@ import TargetComponent from "../map/map";
 const Section = ({ handleOptionChange }) => {
   const [firstData, setFirstData] = useState(null);
   const [secondData, setSecondData] = useState(null);
-  const [selectedFirstOption, setSelectedFirstOption] = useState("");
-  const [selectedSecondOptionValue, setSelectedSecondOptionValue] = useState("");
+  const [selectedFirstOption, setSelectedFirstOption] = useState('');
+  const [selectedSecondOption, setSelectedSecondOption] = useState('');
   const [secondDropdownOptions, setSecondDropdownOptions] = useState([]);
-  // const [selectedFirstData, setSelectedFirstData] = useState(null);
-  // const [selectedSecondData, setSelectedSecondData] = useState(null);
-
+  
  
 
   useEffect(() => {
@@ -24,8 +22,6 @@ const Section = ({ handleOptionChange }) => {
         const response = await fetch("/ANDHRA_PRADESH_NEW_DISTRICTS.geojson");
         const jsonData = await response.json();
         setFirstData(jsonData);
-        // setSelectedFirstData(jsonData)
-        console.log(jsonData);
       } catch (error) {
         console.error("Error fetching GeoJSON:", error);
       }
@@ -36,7 +32,6 @@ const Section = ({ handleOptionChange }) => {
         const response = await fetch("/ANDHRA_PRADESH_SUBDISTRICTS.geojson");
         const jsonData = await response.json();
         setSecondData(jsonData);
-        console.log(jsonData);
       } catch (error) {
         console.error("Error fetching GeoJSON:", error);
       }
@@ -47,71 +42,47 @@ const Section = ({ handleOptionChange }) => {
   }, []);
 
   const handleFirstDropdownChange = (event) => {
-    const selectedOption = event.target.value;
-    console.log("Selected first option:", selectedOption);
-    setSelectedFirstOption(selectedOption);
-
+    const selectedFirstOption = event.target.value;
+    setSelectedFirstOption(selectedFirstOption);
+  
     // Filter the second data based on the selected option from the first dropdown
-    if (secondData){
-      const filteredOptions = secondData.features.filter(
-        (feature) => feature.properties.dtname === selectedOption
-      );
-    
-      console.log("Filtered options:", filteredOptions);
-      // Extract the sdtname from each filtered option
-      const sdtNames = filteredOptions.map(
-        (feature) => feature.properties.sdtname
-      );
-      console.log("Filtered second dropdown options:", sdtNames);
-      setSecondDropdownOptions(sdtNames);
-      setSelectedSecondOptionValue(""); // Reset the selected option in the second dropdown
-      handleOptionChange(firstData, secondData, selectedOption, selectedSecondOptionValue);
-    
-    
-    }
-
-};
+    const filteredOptions = secondData.features.filter(feature => feature.properties.dtname === selectedFirstOption);
+  
+    // Extract the sdtname from each filtered option
+    const sdtNames = filteredOptions.map(feature => feature.properties.sdtname);
+  
+    setSecondDropdownOptions(sdtNames);
+    setSelectedSecondOption('');
+    handleOptionChange(firstData, secondData, selectedFirstOption, selectedSecondOption);
+  };
+  
 
   const handleSecondDropdownChange = (event) => {
-    const selectedSecondOption = event.target.value;
-    setSelectedSecondOptionValue(selectedSecondOption);
-    console.log("i am again ",selectedSecondOption)
-    handleOptionChange(firstData, secondData, selectedFirstOption, selectedSecondOptionValue);
-    console.log("i am again ",selectedFirstOption)
-    console.log("i am again ",selectedSecondOptionValue)
+    setSelectedSecondOption(event.target.value);
+    console.log('hghjj' , event.target.value)
+    console.log('hghjkjkgj' , selectedSecondOption)
+    handleOptionChange(firstData, secondData, selectedFirstOption, selectedSecondOption);
   };
+
 
   return (
     <div className={styles.selector}>
       <div className={styles.form}>
         <FormControl sx={{ m: 2, minWidth: 200 }}>
           <InputLabel id="demo-simple-select-label">District</InputLabel>
-          <select
-            id="selectOption"
-            value={selectedFirstOption}
-            onChange={handleFirstDropdownChange}
-          >
-            <option value="All">All</option>
-            {firstData &&
-              firstData.features?.map((feature, index) => (
-                <option key={index} value={feature.properties.NAME}>
-                  {feature.properties.NAME}
-                </option>
-              ))}
+          <select id="firstDropdown" value={selectedFirstOption} onChange={handleFirstDropdownChange}>
+            <option value="">Select an option</option>
+            {firstData && firstData.features.map((feature, index) => (
+              <option key={index} value={feature.properties.NAME}>{feature.properties.NAME}</option>
+            ))}
           </select>
         </FormControl>
         <FormControl sx={{ m: 2, minWidth: 200 }}>
           <InputLabel id="demo-simple-select-label">Mandal</InputLabel>
-          <select
-            id="selectOption"
-            value={selectedSecondOptionValue}
-            onChange={handleSecondDropdownChange}
-          >
-            <option value="All">All</option>
+          <select id="secondDropdown" value={selectedSecondOption} onChange={handleSecondDropdownChange}>
+            <option value="">Select an option</option>
             {secondDropdownOptions.map((sdtname, index) => (
-              <option key={index} value={sdtname}>
-                {sdtname}
-              </option>
+              <option key={index} value={sdtname}>{sdtname}</option>
             ))}
           </select>
         </FormControl>
