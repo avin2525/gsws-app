@@ -317,9 +317,9 @@ console.log("i am at map",selectedFirstOption )
   }, [selectedFirstOption]);
 
   useEffect(() => {
-    if (map && secondData) {
+    if (map && secondData && stores) {
       const { features } = secondData;
-      console.log("i am at map 322 line",selectedFirstOption )
+
       // Remove existing layers
       const layerIds = map.getStyle().layers.map(layer => layer.id);
       layerIds.forEach(layerId => {
@@ -327,7 +327,7 @@ console.log("i am at map",selectedFirstOption )
           map.removeLayer(layerId);
         }
       });
-  
+
       // Remove existing sources
       const sourceIds = Object.keys(map.getStyle().sources);
       sourceIds.forEach(sourceId => {
@@ -335,16 +335,16 @@ console.log("i am at map",selectedFirstOption )
           map.removeSource(sourceId);
         }
       });
-  
+
       // Iterate over the features and apply different colors based on the selected option
       features.forEach((feature, index) => {
         const isSelected = selectedSecondOption === feature.properties.sdtname;
-        console.log("i am at map 342 line",selectedFirstOption )
+
         map.addSource(`data-${index}`, {
           type: 'geojson',
           data: feature,
         });
-  
+
         map.addLayer({
           id: `data-${index}-layer`,
           type: 'line',
@@ -355,7 +355,7 @@ console.log("i am at map",selectedFirstOption )
             'line-width': 3
           },
         });
-  
+
         if (isSelected) {
           const bounds = new mapboxgl.LngLatBounds();
           feature.geometry.coordinates.forEach(coord => {
@@ -370,10 +370,10 @@ console.log("i am at map",selectedFirstOption )
           'type': 'geojson',
           'data': stores
         });
-        buildLocationList(stores);
-        addMarkers();
+        //buildLocationList(stores);
+        //addMarkers();
     }
-  }, [selectedSecondOption]);
+  }, [selectedSecondOption], [stores]);
   
   
   

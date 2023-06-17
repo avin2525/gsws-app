@@ -1,11 +1,9 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import mapboxgl from "mapbox-gl";
 import styles from "./section.module.css";
 import InputLabel from "@mui/material/InputLabel";
 import FormControl from "@mui/material/FormControl";
 import Divider from "@mui/material/Divider";
-import TargetComponent from "../map/map";
 
 const Section = ({ handleOptionChange }) => {
   const [firstData, setFirstData] = useState(null);
@@ -58,7 +56,8 @@ const Section = ({ handleOptionChange }) => {
   
 
   const handleSecondDropdownChange = (event) => {
-    setSelectedSecondOption(event.target.value);
+    const selectedSecondOption = event.target.value;
+    setSelectedSecondOption(selectedSecondOption);
     console.log('hghjj' , event.target.value)
     console.log('hghjkjkgj' , selectedSecondOption)
     handleOptionChange(firstData, secondData, selectedFirstOption, selectedSecondOption);
