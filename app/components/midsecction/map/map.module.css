@@ -83,22 +83,22 @@
     text-decoration: none;
 }
 
-.listings .item:last-child {
+ .item:last-child {
     border-bottom: none;
 }
 
-.listings .item .title {
+.item .title {
     display: block;
     color: #00853e;
     font-weight: 700;
 }
 
-.listings .item .title small {
+.item .title small {
     font-weight: 400;
 }
 
-.listings .item.active .title,
-.listings .item .title:hover {
+
+.title:hover {
     color: #8cc63f;
 }
 
