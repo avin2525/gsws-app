@@ -15,6 +15,8 @@ const Map = ({
 }) => {
   const mapContainerRef = useRef(null); // Add this line
   const [map, setMap] = useState(null);
+  // const mapContainerRef = useRef(null);
+
 
   const stores = {
     'type': 'FeatureCollection',

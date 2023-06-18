@@ -1,7 +1,42 @@
+/* .map {
+ width: 800px;
+ height: 600px;
+  margin: 5;
+} */
+
+
+/* map.module.css */
+
 .map {
- width: 600px;
- height: 500px;
-  margin: 10;
+  width: 700px;
+  height: 550px; /* Set an initial height for the map container */
+}
+
+/* Media queries for different screen sizes */
+@media (max-width: 1439px) {
+  .map {
+    height: 600px;
+    width: 600px;
+  }
+}
+@media (max-width: 1024px) {
+  .map {
+    height: 500px;
+    width: 500px;
+  }
+}
+@media (max-width: 768px) {
+  .map {
+    height: 600px;
+    width: 600px;
+  }
+}
+
+@media (max-width: 630px) {
+  .map {
+    height: 350px; 
+    width: 300px;
+  }
 }
 
 .heading {

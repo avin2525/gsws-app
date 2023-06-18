@@ -31,6 +31,7 @@ export default function Mid() {
             <Selector handleOptionChange={handleOptionChange} />
           </div>
           <div className={styles.bottomRow}>
+          <h3>List of Seceretariat Offices</h3>
             {/* <Paragraphs /> */}
             <div id="listings" className={styles.listings}></div>
           </div>
