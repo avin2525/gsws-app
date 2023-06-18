@@ -1,11 +1,12 @@
 
 "use client"
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef} from 'react';
 import React from "react";
 import Head from "next/head";
 import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
-import styles from "./map.module.css"
+import styles from "./map.module.css";
+// import Loading from "./loading";
 const Map = ({
   firstData,
   secondData,
@@ -22,18 +23,11 @@ const Map = ({
         'type': 'Feature',
         'geometry': {
           'type': 'Point',
-          'coordinates': [82.0644112, 17.4509184]
+          'coordinates': [80.9924978, 16.3884828]
         },
         'properties': {
-          'phoneFormatted': '(202) 234-7336',
-          'phone': '2022347336',
-          'name': 'GONDOLU',
-          'city': 'Hyderabad',
-          'country': 'India',
-          'Street': 'KPHB',
-          'postalCode': '50072',
-          'state': 'Telangana'
-        }
+          'name': 'GIDIVADA',
+          'country': 'India' }
       },
       {
         'type': 'Feature',
@@ -370,8 +364,8 @@ console.log("i am at map",selectedFirstOption )
           'type': 'geojson',
           'data': stores
         });
-        //buildLocationList(stores);
-        //addMarkers();
+        buildLocationList(stores);
+        addMarkers();
     }
   }, [selectedSecondOption], [stores]);
   
@@ -504,8 +498,8 @@ console.log("i am at map",selectedFirstOption )
 
 // console.log("I am okay", selectedOption)
   return (
-    <div > 
-    <main className={styles.main}>
+  <div  className={styles.container}>
+    {/* <Suspense fallback={<Loading/>}> */}
       {/* <h2>Target Component</h2> */}
       {/* <p>First Data: {JSON.stringify(firstData)}</p> */}
       <div ref={mapContainerRef} className={styles.map} />
@@ -514,9 +508,8 @@ console.log("i am at map",selectedFirstOption )
       <p>second Selected Option: {anotherSelectedOption}</p>
       {/* <p>Selected Second Option: {selectedSecondOption}</p> */}
       {/* <p>Second Dropdown Options: {JSON.stringify(secondDropdownOptions)}</p> */} 
-   </main>
-   <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
-    </div>
+   {/* </Suspense> */}
+   </div>
   );
 };
 

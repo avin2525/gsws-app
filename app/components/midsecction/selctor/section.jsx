@@ -5,6 +5,10 @@ import InputLabel from "@mui/material/InputLabel";
 import FormControl from "@mui/material/FormControl";
 import Divider from "@mui/material/Divider";
 
+
+
+
+
 const Section = ({ handleOptionChange }) => {
   const [firstData, setFirstData] = useState(null);
   const [secondData, setSecondData] = useState(null);
@@ -65,30 +69,29 @@ const Section = ({ handleOptionChange }) => {
 
 
   return (
-    <div className={styles.selector}>
-      <div className={styles.form}>
-        <FormControl sx={{ m: 2, minWidth: 200 }}>
-          <InputLabel id="demo-simple-select-label">District</InputLabel>
-          <select id="firstDropdown" value={selectedFirstOption} onChange={handleFirstDropdownChange}>
-            <option value="">Select an option</option>
+    <selector className={styles.selector}>
+      <form className={styles.form}>
+        <FormControl sx={{ m: 2, minWidth: 300 }} >
+          {/* <InputLabel id="demo-simple-select-label">District</InputLabel> */}
+          <select className={styles.firstDropdown}value={selectedFirstOption} onChange={handleFirstDropdownChange}>
+            <option value="">Select an DISTRICTS</option>
             {firstData && firstData.features.map((feature, index) => (
               <option key={index} value={feature.properties.NAME}>{feature.properties.NAME}</option>
             ))}
           </select>
         </FormControl>
-        <FormControl sx={{ m: 2, minWidth: 200 }}>
-          <InputLabel id="demo-simple-select-label">Mandal</InputLabel>
-          <select id="secondDropdown" value={selectedSecondOption} onChange={handleSecondDropdownChange}>
-            <option value="">Select an option</option>
+        <FormControl sx={{ m: 2, minWidth: 300 }}>
+          {/* <InputLabel id="demo-simple-select-label" >SUBDISTRICT</InputLabel> */}
+          <select  className={styles.secondDropdown} value={selectedSecondOption} onChange={handleSecondDropdownChange}>
+            <option value="">Select an SUBDISTRICTS</option>
             {secondDropdownOptions.map((sdtname, index) => (
               <option key={index} value={sdtname}>{sdtname}</option>
             ))}
           </select>
         </FormControl>
-      </div>
-      <Divider />
+      </form>
 
-    </div>
+    </selector>
   );
 };
 

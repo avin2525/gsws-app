@@ -10,6 +10,7 @@
   padding-top: 10px;
   text-decoration: none;
   /* position: absolute; */
+  /* position: fixed; */
   top: 0;
   left: 0;
   right: 0;
@@ -66,6 +67,26 @@
   .Container {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .pageTitle1 {
+    margin-bottom: 10px;
+    padding-left: 50px;
+  }
+
+  .leftHeading {
+    font-size: 25px;
+  }
+
+  .rightImage1,
+  .rightImage2 {
+    display: none;
+  }
+}
+@media (max-width: 425px) {
+  .Container {
+    flex-direction: column;
+    align-items: center;
   }
 
   .pageTitle1 {
