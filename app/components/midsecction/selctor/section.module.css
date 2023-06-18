@@ -14,23 +14,27 @@
 
 .selector {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    /* flex-wrap: wrap; */
+    flex-direction: row;
+    justify-content:space-between;
+
   }
   
   .form {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    /* flex-wrap: wrap; */
+    justify-content: space-between;
+
+    flex-direction: row;
   }
   
   .formControl {
-    margin: 10px;
+    /* margin-r\: 10px; */
     min-width: 150px;
   }
   
   .secondDropdown {
-    width: 250px;
+    width: 200px;
     height: 35px;
     padding: 4px;
     border-radius: 6px;
@@ -46,7 +50,7 @@
   }
 
   .firstDropdown {
-    width: 250px;
+    width: 200px;
     height: 35px;
     padding: 4px;
     border-radius: 6px;
@@ -71,6 +75,25 @@
     .formControl {
       margin: 5px;
     }
+  }
+
+  @media (max-width: 750px) {
+    .selector {
+      display: flex;
+      /* flex-wrap: wrap; */
+      flex-direction: column;
+      justify-content:space-between;
+  
+    }
+    
+    .form {
+      display: flex;
+      /* flex-wrap: wrap; */
+      justify-content: space-between;
+  
+      flex-direction: column;
+    }
+
   }
   
   @media (max-width: 480px) {

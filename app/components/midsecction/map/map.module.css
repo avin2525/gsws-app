@@ -134,9 +134,9 @@
 
 
 .title:hover {
-    color: #8cc63f;
+    color: #ff0000;
 }
 
 .listings .item.active {
-    background-color: #f8f8f8;
+    background-color: #ff0000;
 } 

@@ -71,7 +71,7 @@ const Section = ({ handleOptionChange }) => {
   return (
     <selector className={styles.selector}>
       <form className={styles.form}>
-        <FormControl sx={{ m: 2, minWidth: 300 }} >
+        <FormControl sx={{ m: 2, minWidth: 200 }} >
           
           {/* <InputLabel id="demo-simple-select-label">District</InputLabel> */}
           <select className={styles.firstDropdown}value={selectedFirstOption} onChange={handleFirstDropdownChange}>
@@ -81,7 +81,7 @@ const Section = ({ handleOptionChange }) => {
             ))}
           </select>
         </FormControl>
-        <FormControl sx={{ m: 2, minWidth: 300 }}>
+        <FormControl sx={{ m: 2, minWidth: 200 }}>
           {/* <InputLabel id="demo-simple-select-label" >SUBDISTRICT</InputLabel> */}
           <select  className={styles.secondDropdown} value={selectedSecondOption} onChange={handleSecondDropdownChange}>
             <option value="">Select an SUBDISTRICTS</option>
