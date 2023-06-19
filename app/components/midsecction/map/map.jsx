@@ -238,10 +238,9 @@ console.log("i am at map",selectedFirstOption )
       const mapInstance = new mapboxgl.Map({
         container: mapContainerRef.current,
         style: "mapbox://styles/mapbox/streets-v12",
-        center: [81.95565, 15.7973],
-        zoom: 6.0,
+        center: [80.5600, 16.3350],
+        zoom: 5.65,
       });
-
       mapInstance.addControl(new mapboxgl.NavigationControl(), 'top-right');
 
       setMap(mapInstance);
@@ -258,6 +257,27 @@ console.log("i am at map",selectedFirstOption )
     };
   }, [map]);
 
+  useEffect(() => {
+    if (map) {
+      map.on('load', () => {
+        map.addSource('data', {
+          type: 'geojson',
+          data: '/APSSDI_Project_administrative_bnd_sdi_copy.geojson', // Replace with the path to your GeoJSON file
+        });
+        map.addLayer({
+          id: 'data-layer',
+          type: 'line',
+          source: 'data',
+          paint: {
+            'line-color': '#0000FF',
+            'line-width': 2,
+            'line-opacity': 1,
+          }
+        });
+      });
+    }
+
+  });
 
   useEffect(() => {
     console.log("map" ,firstData )
@@ -293,7 +313,7 @@ console.log("i am at map",selectedFirstOption )
           type: 'line',
           source: `data-${index}`,
           paint: {
-            'line-color': isSelected ? '#ff7f50' : null,
+            'line-color': isSelected ? '#ff7f50' : '',
             'line-opacity': isSelected ? 1 : 0.5,
             'line-width': 5
           },
