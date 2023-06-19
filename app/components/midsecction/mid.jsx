@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./mid.module.css";
 import Selector from "./selctor/section";
 import Map from "./map/map";
@@ -11,6 +11,7 @@ export default function Mid() {
   const [selectedSecondOption, setSelectedSecondOption] = useState("");
   const [firstData, setFirstData] = useState("");
   const [secondData, setSecondData] = useState("");
+  const [showListings, setShowListings] = useState(false);
 
   const handleOptionChange = (
     firstData,
@@ -22,7 +23,17 @@ export default function Mid() {
     setSelectedSecondOption(secondValue);
     setFirstData(firstData);
     setSecondData(secondData);
+
+    // setShowListings(false);
   };
+
+  // useEffect to show listings when secondData is available
+  useEffect(() => {
+    if (selectedSecondOption) {
+      setShowListings(true);
+    }
+  }, [selectedSecondOption]);
+
   return (
     <section className={styles.container}>
       <div className={styles.midSection}>
@@ -30,15 +41,12 @@ export default function Mid() {
           <div className={styles.topRow}>
             <Selector handleOptionChange={handleOptionChange} />
           </div>
+          {showListings && <h1 className={styles.h1}>List of Secretariat Offices</h1>}
           <div className={styles.bottomRow}>
-          <h3>List of Seceretariat Offices</h3>
-            {/* <Paragraphs /> */}
             <div id="listings" className={styles.listings}></div>
           </div>
         </div>
-
-        <div className={styles.rightSection} >
-          {/* add right side routes */}
+        <div className={styles.rightSection}>
           <Map
             selectedFirstOption={selectedFirstOption}
             selectedSecondOption={selectedSecondOption}

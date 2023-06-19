@@ -42,6 +42,10 @@
   /* background-color:white */
   justify-self: flex-end;
 }
+.h1{
+  color: azure;
+  padding-left: 30px;
+}
 
 .bottomRow {
   margin-top: 5px;
@@ -51,7 +55,7 @@
   background-color: none;
   border-radius: 5px;
   /* max-height: 600px; */
-  height: 600px;
+  height: 500px;
 
   overflow-y: auto; /* Enable vertical scrolling */
 }

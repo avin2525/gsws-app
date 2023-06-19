@@ -83,10 +83,31 @@
     display: none;
   }
 }
-@media (max-width: 425px) {
+@media (max-width: 572px) {
   .Container {
     flex-direction: column;
     align-items: center;
+  }
+
+  .pageTitle1 {
+    margin-bottom: 10px;
+    padding-left: 50px;
+  }
+
+  .leftHeading {
+    font-size: 25px;
+  }
+
+  .rightImage1,
+  .rightImage2 {
+    display: none;
+  }
+}
+@media (max-width: 480px) {
+  .Container {
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
   }
 
   .pageTitle1 {
