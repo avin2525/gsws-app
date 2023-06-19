@@ -2,6 +2,7 @@
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
 import styles from "./mid.module.css";
+import mapStyles from "./map/map.module.css"
 import Selector from "./selctor/section";
 import Map from "./map/map";
 import { Margin } from "@mui/icons-material";
@@ -43,7 +44,7 @@ export default function Mid() {
           </div>
           {showListings && <h1 className={styles.h1}>List of Secretariat Offices</h1>}
           <div className={styles.bottomRow}>
-            <div id="listings" className={styles.listings}></div>
+            <div id="listings" className={mapStyles.listings}></div>
           </div>
         </div>
         <div className={styles.rightSection}>

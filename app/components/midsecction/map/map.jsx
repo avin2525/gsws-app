@@ -361,8 +361,9 @@ console.log("i am at map",selectedFirstOption )
           });
           map.fitBounds(bounds, { padding: 20 });
         }
-      }); 
-        map.addSource('places', {
+      });
+      
+        map.addSource('data-places', {
           'type': 'geojson',
           'data': stores
         });

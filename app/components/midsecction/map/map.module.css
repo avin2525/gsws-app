@@ -1,37 +1,3 @@
-/* 
-
-.map {
-  width: 900px;
-  height: 550px;
-}
-
-@media (max-width: 1439px) {
-  .map {
-    height: 600px;
-    width: 600px;
-  }
-}
-@media (max-width: 1024px) {
-  .map {
-    height: 500px;
-    width: 500px;
-  }
-}
-@media (max-width: 768px) {
-  .map {
-    height: 600px;
-    width: 600px;
-  }
-}
-
-@media (max-width: 630px) {
-  .map {
-    height: 350px; 
-    width: 300px;
-  }
-} */
-
-
 .map {
   width: 900px; /* Set the width to fill the parent container */
   height: 550px; /* Set an initial height for the map container */
@@ -180,30 +146,31 @@
     padding-bottom: 50px;
 }
 
- .item {
+ .listings .item {
     display: block;
     border-bottom: 1px solid #eee;
     padding: 10px;
     text-decoration: none;
 }
 
- .item:last-child {
+ .listings .item:last-child {
     border-bottom: none;
 }
 
-.item .title {
+.listings .item .title {
     display: block;
-    color: #00853e;
+    color: #ff7f50;
     font-weight: 700;
 }
 
-.item .title small {
+.listings .item .title small {
     font-weight: 400;
 }
 
 
-.title:hover {
-    color: #ff0000;
+.listings .item.active .title,
+.listings .item .title:hover {
+  color: #f70f0f;
 }
 
 .listings .item.active {
