@@ -141,9 +141,11 @@
 
 .listings {
     height: calc(100% - 60px);
-    width: 300px;
+    width: 220px;
     overflow: auto;
     padding-bottom: 50px;
+    background: linear-gradient( #1b52a6, #4bb64e);
+
 }
 
  .listings .item {
